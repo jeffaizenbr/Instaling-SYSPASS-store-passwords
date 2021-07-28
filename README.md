@@ -43,9 +43,6 @@ sudo yum -y install php php-cli
 ```bash
 yum install -y php php-mcrypt php-cli php-gd php-curl php-mysql php-ldap php-zip php-fileinfo 
 ```
-```bash
-yum install -y php php-mcrypt php-cli php-gd php-curl php-mysql php-ldap php-zip php-fileinfo
-```
 
 ```bash
 yum install -y php-mbstring php-mysqlnd php-curl php-json php-gd php-xml php-mbstring php-intl php-readline php-ldap php-mcrypt unzip wget
