@@ -24,6 +24,7 @@ Install PHP 7.3
 
 ```bash
 yum install -y http://rpms.remirepo.net/enterprise/remi-release-7.rpm
+yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 ```
 
 
@@ -39,7 +40,9 @@ sudo yum-config-manager --enable remi-php73
 ```bash
 sudo yum -y install php php-cli
 ```
-
+```bash
+yum install -y php php-mcrypt php-cli php-gd php-curl php-mysql php-ldap php-zip php-fileinfo 
+```
 ```bash
 yum install -y php php-mcrypt php-cli php-gd php-curl php-mysql php-ldap php-zip php-fileinfo
 ```
