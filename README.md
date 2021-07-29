@@ -95,22 +95,80 @@ php composer.phar install --no-dev
 ```
 
 
+
+#Update syspass
+
+Database process
+
+```bash
+create user 'syspass'@'localhost' identified by '123' ;
+```
+
+```bash
+create user 'syspass'@'%' identified by '123' ;
+```
+
+```bash
+create database syspass33 ;
+```
+
+```bash
+grant all privileges on *.* to 'syspass'@'localhost' ;
+```
+
+```bash
+grant all privileges on syspass33.* to 'syspass'@'localhost' ;
+```
+
+```bash
+grant all privileges on syspass33.* to 'syspass'@'%' ;
+```
+
+```bash
+grant all privileges on *.* to 'syspass'@'%' ;
+```
+
+```bash
+scp root@OLDSYSPASS:/var/www/html/syspassOLD/app/config/config.xml /var/www/html/syspassNEW/app/config/
+```
+
+```bash
+chmod -R 750 /var/www/html/syspassNEW/app/config/ ; chown -R apache /var/www/html/syspassNEW/app/config/
+```
+execute script
+
 ```bash
 
+```bash
+#!/bin/sh
+EXPECTED_SIGNATURE="$(wget -q -O - https://composer.github.io/installer.sig)"
+php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+ACTUAL_SIGNATURE="$(php -r "echo hash_file('sha384', 'composer-setup.php');")"
+
+if [ "$EXPECTED_SIGNATURE" != "$ACTUAL_SIGNATURE" ]
+then
+    >&2 echo 'ERROR: Invalid installer signature'
+    rm composer-setup.php
+    exit 1
+fi
+
+php composer-setup.php --quiet
+RESULT=$?
+rm composer-setup.php
+exit $RESULT
+
+```
+
+```bash
+php composer.phar install --no-dev
+```
+
+```bash
+systemctl restart httpd
 
 ```
 
 
-```bash
-
-
-```
-
-
-```bash
-
-
-```
 
 
 
@@ -123,11 +181,3 @@ php composer.phar install --no-dev
 
 
 
-
-
-
-
-```bash
-
-
-```
