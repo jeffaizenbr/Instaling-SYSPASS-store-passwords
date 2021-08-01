@@ -185,8 +185,8 @@ chmod +x composer.phar
 ```bash
 mv composer.phar /usr/bin
 ```
-composer --version
 ```bash
+composer --version
 ```
 Install Plugin, after that, enable plugin from front-end app
 ```bash
