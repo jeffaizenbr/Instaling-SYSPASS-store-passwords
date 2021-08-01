@@ -168,9 +168,30 @@ systemctl restart httpd
 
 ```
 
+# Install plugin double factor authentication
 
+Install composer v2
 
+```bash
+php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+```
+```bash
+php composer-setup.php
 
+```
+```bash
+chmod +x composer.phar
+```
+```bash
+mv composer.phar /usr/bin
+```
+composer --version
+```bash
+```
+Install Plugin, after that, enable plugin from front-end app
+```bash
+composer require syspass/plugin-authenticator:^v2.0
+```
 
 
 
